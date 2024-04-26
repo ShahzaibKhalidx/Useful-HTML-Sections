@@ -1,0 +1,133 @@
+<div class="logo-slider">
+    <div class="logo-slide-track">
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/b9e27588-91a0-4c23-8b5b-cc0ccbf3ca2b.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/e10a5ab8-fff3-4a37-a41e-056bf16905b5.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/e3d85df1-6573-4b89-8f6a-e4933395520b.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/a4510dc8-9d87-4364-9911-30322f6c9813.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/89a58aef-50d6-40c6-aa4c-4adba3df2fb9.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/086d2a7e-7c19-4e1c-b51a-a87e6254855c.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/3e327bb7-6c29-4be2-b5f5-08bd0b5131f1.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/fe4153b3-545b-4e59-8e70-e6dc63cbfa6c.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/8e4d9c71-9734-42f2-9fc3-6d39ecdd24e3.png"
+                alt="" />
+        </div>
+
+    </div>
+</div>
+
+<style>
+    /* Logo Slider */
+    .slide img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+        width: auto;
+        height: auto;
+        margin: auto;
+    }
+
+    .logo-slider {
+        background: tranparent;
+        -webkit-box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.125);
+        box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.125);
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .logo-slider::before,
+    .logo-slider::after {
+        background: -webkit-gradient(linear, left top, right top, from(white), to(rgba(255, 255, 255, 0)));
+        background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+        content: "";
+        height: 175px !important;
+        position: absolute;
+        width: 200px;
+        z-index: 2;
+    }
+
+    .logo-slider::after {
+        right: 0;
+        top: 0;
+        -webkit-transform: rotateZ(180deg);
+        transform: rotateZ(180deg);
+    }
+
+    .logo-slider::before {
+        left: 0;
+        top: 0;
+    }
+
+    .logo-slider .logo-slide-track {
+        -webkit-animation: logo-scroll 60s linear infinite;
+        animation: logo-scroll 60s linear infinite;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: calc(250px * 14);
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+    }
+
+    .logo-slider .slide {
+        align-items: center;
+        /* Centers content vertically */
+        display: flex;
+        /* Allows flex properties */
+        justify-content: center;
+        /* Centers content horizontally */
+        height: 150px;
+        width: 250px;
+        padding: 20px;
+    }
+
+    @-webkit-keyframes logo-scroll {
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        100% {
+            -webkit-transform: translateX(calc(-250px * 7));
+            transform: translateX(calc(-250px * 7));
+        }
+    }
+
+    @keyframes logo-scroll {
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+
+        100% {
+            -webkit-transform: translateX(calc(-250px * 7));
+            transform: translateX(calc(-250px * 7));
+        }
+    }
+</style>

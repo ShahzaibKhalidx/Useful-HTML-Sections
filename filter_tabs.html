@@ -1,0 +1,320 @@
+<style>
+  @font-face {
+    font-family: "flama";
+    src: url(./Nicolast.ttf);
+  }
+
+  .card-title {
+    font-family: 'flama';
+  }
+</style>
+
+
+
+<style>
+  .main_wrapper {
+    text-align: center;
+  }
+
+  .btn_filter {
+    border: none;
+    background: #d40f2c;
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 8px 14px 8px 14px;
+    text-decoration: none;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .active {
+    background: linear-gradient(to bottom, #d40f2c, #e53b2c);
+    text-decoration: none;
+  }
+
+  .spacer {
+    clear: both;
+    height: 20px;
+  }
+
+  /* Flexbox setup for card container */
+  #filter_parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Center cards within the container */
+  }
+
+  /* card styling */
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 25px;
+    margin: 5px;
+    text-align: left;
+    border-radius: 3px;
+    width: calc(25% - 10px);
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 0 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+  }
+
+  .card-img {
+    width: 65px;
+  }
+
+  .card-title {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .card-content {
+    font-size: 16px;
+    line-height: 1.2;
+    color: #414141;
+  }
+
+  .card-content-item {
+    margin-bottom: 2px;
+  }
+
+  .card-content-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Media Queries for mobile devices */
+  @media (max-width: 767px) {
+    .card {
+      width: 100%;
+      /* Full width for mobile devices */
+    }
+  }
+</style>
+
+<script>
+  // $(document).ready(function () {
+  //     var $btns = $(".btn_filter").click(function () {
+  //         if (this.id == "all") {
+  //             $("#parent > div").fadeIn(450);
+  //         } else {
+  //             var $el = $("." + this.id).fadeIn(450);
+  //             $("#parent > div").not($el).hide();
+  //         }
+  //         $btns.removeClass("active");
+  //         $(this).addClass("active");
+  //     });
+  // });
+
+  // Location Filter Code
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var btns = document.querySelectorAll('.btn_filter');
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var selectedClass = this.id;
+
+        if (selectedClass == "all") {
+          var elements = document.querySelectorAll('#filter_parent > div');
+          elements.forEach(function (el) {
+            el.style.display = 'block';
+            fadeIn(el, 450);
+          });
+        } else {
+          var elementsToShow = document.querySelectorAll('.' + selectedClass);
+          elementsToShow.forEach(function (el) {
+            fadeIn(el, 450);
+          });
+
+          var elementsToHide = document.querySelectorAll('#filter_parent > div:not(.' + selectedClass + ')');
+          elementsToHide.forEach(function (el) {
+            el.style.display = 'none';
+          });
+        }
+
+        btns.forEach(function (btn) {
+          btn.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
+    });
+  });
+
+  function fadeIn(element, duration) {
+    element.style.opacity = 0;
+    element.style.display = 'block';
+
+    var last = +new Date();
+    var tick = function () {
+      element.style.opacity = +element.style.opacity + (new Date() - last) / duration;
+      last = +new Date();
+
+      if (+element.style.opacity < 1) {
+        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+      }
+    };
+
+    tick();
+  }
+
+</script>
+
+
+<div class="main_wrapper">
+  <button class="active btn_filter" id="all">All</button>
+  <button class="btn_filter" id="mont">Montreal</button>
+  <button class="btn_filter" id="laval">Laval</button>
+  <button class="btn_filter" id="lauren">Laurentides</button>
+  <button class="btn_filter" id="rive">Rive-Sud</button>
+
+  <div class="spacer"></div>
+
+  <div id="filter_parent">
+
+    <div class="card mont">
+      <div class="card-icon">
+        <img class="card-img"
+          src="https://cdn.shopify.com/s/files/1/0567/5479/8647/files/Ellipse_4_430x.png?v=1712473864#">
+      </div>
+      <h1 class="card-title">Mont-Royal</h1>
+      <div class="card-content">
+        <div class="card-content-item">1042a avenue Mont-Royal</div>
+        <div class="card-content-item">Montréal</div>
+        <div class="card-content-item">514-303-9304</div>
+      </div>
+    </div>
+
+    <div class="card mont">
+      <div class="card-icon">
+        <img class="card-img"
+          src="https://cdn.shopify.com/s/files/1/0567/5479/8647/files/Ellipse_4_430x.png?v=1712473864#">
+      </div>
+      <h1 class="card-title">Masson</h1>
+      <div class="card-content">
+        <div class="card-content-item">2900 rue Masson</div>
+        <div class="card-content-item">Montréal</div>
+        <div class="card-content-item">514-723-6306</div>
+      </div>
+    </div>
+
+    <div class="card laval">
+      <div class="card-icon">
+        <img class="card-img"
+          src="https://cdn.shopify.com/s/files/1/0567/5479/8647/files/Ellipse_4_430x.png?v=1712473864#">
+      </div>
+      <h1 class="card-title">Laval</h1>
+      <div class="card-content">
+        <div class="card-content-item">2142 boul. des Laurentides</div>
+        <div class="card-content-item">Laval</div>
+        <div class="card-content-item">450-629-6060</div>
+      </div>
+    </div>
+
+    <div class="card lauren">
+      <div class="card-icon">
+        <img class="card-img"
+          src="https://cdn.shopify.com/s/files/1/0567/5479/8647/files/Ellipse_4_430x.png?v=1712473864#">
+      </div>
+      <h1 class="card-title">Saint-Eustache</h1>
+      <div class="card-content">
+        <div class="card-content-item">360 Boul. Arthur-Sauvé</div>
+        <div class="card-content-item">Saint-Eustache</div>
+        <div class="card-content-item">450-974-9299</div>
+      </div>
+    </div>
+    <!-- card start -->
+    <div class="card lauren">
+      <div class="card-icon">
+        <img class="card-img"
+          src="https://cdn.shopify.com/s/files/1/0567/5479/8647/files/Ellipse_4_430x.png?v=1712473864#">
+      </div>
+      <h1 class="card-title">Mont-Tremblant</h1>
+      <div class="card-content">
+        <div class="card-content-item">507 rue de St-Jovite</div>
+        <div class="card-content-item">Mont-Tremblant</div>
+        <div class="card-content-item">819-425-5335</div>
+      </div>
+    </div>
+    <!-- card end -->
+    <!-- card start -->
+    <div class="card lauren">
+      <div class="card-icon">
+        <img class="card-img"
+          src="https://cdn.shopify.com/s/files/1/0567/5479/8647/files/Ellipse_4_430x.png?v=1712473864#">
+      </div>
+      <h1 class="card-title">Sainte-Agathe</h1>
+      <div class="card-content">
+        <div class="card-content-item">40 Boul. Norbert-Morin</div>
+        <div class="card-content-item">Sainte-Agathe</div>
+        <div class="card-content-item">819-774-1217</div>
+      </div>
+    </div>
+    <!-- card end -->
+
+    <div class="card rive">
+      <div class="card-icon">
+        <img class="card-img"
+          src="https://cdn.shopify.com/s/files/1/0567/5479/8647/files/Ellipse_4_430x.png?v=1712473864#">
+      </div>
+      <h1 class="card-title">Saint-Hubert</h1>
+      <div class="card-content">
+        <div class="card-content-item">7024 rue St Hubert, Saint-Hubert</div>
+        <div class="card-content-item">Saint-Hubert</div>
+        <div class="card-content-item">514-223-7223</div>
+      </div>
+    </div>
+    <!-- card start -->
+    <div class="card rive">
+      <div class="card-icon">
+        <img class="card-img"
+          src="https://cdn.shopify.com/s/files/1/0567/5479/8647/files/Ellipse_4_430x.png?v=1712473864#">
+      </div>
+      <h1 class="card-title">Candiac</h1>
+      <div class="card-content">
+        <div class="card-content-item">3, boul. de Sardaigne</div>
+        <div class="card-content-item">Candiac</div>
+        <div class="card-content-item">450-341-3041</div>
+      </div>
+    </div>
+    <!-- card end -->
+    <!-- card start -->
+    <div class="card rive">
+      <div class="card-icon">
+        <img class="card-img"
+          src="https://cdn.shopify.com/s/files/1/0567/5479/8647/files/Ellipse_4_430x.png?v=1712473864#">
+      </div>
+      <h1 class="card-title">Saint-Jean-Sur-Richelieu</h1>
+      <div class="card-content">
+        <div class="card-content-item">600 Rue Pierre-Caisse Unit 530</div>
+        <div class="card-content-item">Saint-Jean-Sur-Richelieu</div>
+        <div class="card-content-item">450-349-5050</div>
+      </div>
+    </div>
+    <!-- card end -->
+    <!-- card start -->
+    <div class="card rive">
+      <div class="card-icon">
+        <img class="card-img"
+          src="https://cdn.shopify.com/s/files/1/0567/5479/8647/files/Ellipse_4_430x.png?v=1712473864#">
+      </div>
+      <h1 class="card-title">Longueuil</h1>
+      <div class="card-content">
+        <div class="card-content-item">825 Rue Saint-Laurent O Unit 45</div>
+        <div class="card-content-item">Longueuil</div>
+        <div class="card-content-item">450-442-3436</div>
+      </div>
+    </div>
+    <!-- card end -->
+
+    <!-- End Cards -->
+  </div>
+</div>

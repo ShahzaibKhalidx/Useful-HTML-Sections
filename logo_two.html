@@ -1,0 +1,122 @@
+<div class="logo-slider">
+    <div class="logo-slide-track">
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/2e42d545-c356-4c48-adb1-229934ef7343.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/3a27b297-2d9e-4f18-8ab0-55227784f69c.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/097696a5-4374-4407-bc65-8a0410eea513.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/d8673e18-18ea-4478-9f9b-fa8f2f09b2e3.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/1789b9bc-acf3-485c-932d-972e5cec538a.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/159886ec-b4cf-4cba-a278-a86376f89ee8.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/8694633d-0ace-43e0-9bf4-a12a6084e00f.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/e988d21d-dbde-425b-be12-d9b6dd9e5de5.png"
+                alt="" />
+        </div>
+        <div class="slide">
+            <img src="https://kernex.fra1.cdn.digitaloceanspaces.com/apps/66294569d1456be651986e24/uploads/b3bd6ab8-5711-499f-8adf-735115f97c12.png"
+                alt="" />
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Logo Slider */
+    .slide img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+        width: auto;
+        height: auto;
+        margin: auto;
+    }
+
+    .logo-slider {
+        background: #414141;
+        -webkit-box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.125);
+        box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.125);
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+    .logo-slider::before,
+    .logo-slider::after {
+        content: "";
+        height: 175px !important;
+        position: absolute;
+        width: 200px;
+        z-index: 2;
+    }
+    .logo-slider::after {
+        right: 0;
+        top: 0;
+        -webkit-transform: rotateZ(180deg);
+        transform: rotateZ(180deg);
+    }
+    .logo-slider::before {
+        left: 0;
+        top: 0;
+    }
+    .logo-slider .logo-slide-track {
+        -webkit-animation: logo-scroll 60s linear infinite;
+        animation: logo-scroll 60s linear infinite;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: calc(250px * 14);
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+    }
+    .logo-slider .slide {
+        align-items: center;
+        /* Centers content vertically */
+        display: flex;
+        /* Allows flex properties */
+        justify-content: center;
+        /* Centers content horizontally */
+        height: 150px;
+        width: 250px;
+        padding: 20px;
+    }
+    @-webkit-keyframes logo-scroll {
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+        100% {
+            -webkit-transform: translateX(calc(-250px * 7));
+            transform: translateX(calc(-250px * 7));
+        }
+    }
+
+    @keyframes logo-scroll {
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+        100% {
+            -webkit-transform: translateX(calc(-250px * 7));
+            transform: translateX(calc(-250px * 7));
+        }
+    }
+</style>
